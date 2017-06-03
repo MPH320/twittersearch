@@ -1,0 +1,20 @@
+body {
+	background-color: #CCCCCC;
+	font-family: helvetica, arial, sans-serif;
+}
+
+.profile {
+	background-color: #EBEBEB;
+	width: 300px;
+	padding: 1em;
+}
+
+.profile img {
+	max-width: 80%;
+	display: block;
+	margin: auto;
+}
+
+li {
+	list-style-type: none;
+}
