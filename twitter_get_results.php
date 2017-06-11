@@ -1,12 +1,5 @@
 <?php
-
-	/* IMPORTANT: GET AN API KEY FROM TWITTER AND FILL OUT THE FOLLOWING
-	VARIABLES FIRST BEFORE TRYING TO RUN THIS PAGE. */
-	
-	$consumer_key = "hzfUDkHb6l86NU5a5XCQE9b43";
-	$consumer_secret = "DYgDkr5EsLvPoexgG7Le4aqP76OvnlKtsHUFPTpa2dwPeu08kZ";
-	$access_token = "150449730-hGVJn7I10HsBkGuz5z0gajgtVXWg5p0hF0RHK5s1";
-	$access_token_secret = "ve437BqhwSbw5JdWTQ6GQ3lBL6TljTc0exyENwCySIm30";
+	include "keys.php";
 	
 	require_once('codebird/src/codebird.php');
 	
@@ -27,7 +20,7 @@
 	$hashTag = "#";
 	//default tweet amount
 	$tweetCount = 5;
-    //default language (edit if you'd like)
+    //default language
 	$language = "en";
 	
 	if(isset($_POST["hash_tag"]) && !empty($_POST["hash_tag"])) {
@@ -49,24 +42,8 @@
 		
 	$result = (array) $cbInstance->search_tweets($parameters);
 
-    //https://nerdyjunkyard.wordpress.com/2014/01/30/dealing-with-tweet-data-by-php/
-	
-	//$encodedResult = json_encode($result);
-	
-	//$data = json_decode($encodedResult, true);
-	
-	//we go through it and search for the “statuses”. In Twitter API language status actually means a tweet and all the metadata included.
 	$data = (array) $result['statuses'];
     
     $encodedResult = json_encode($data);
-
-    //print_r ($data);
-
-    //https://dev.twitter.com/overview/api/tweets
-	
-	//generate a tweet from a specified tweet object
-
-     
-	//http://php.net/manual/en/function.nl2br.php
 	
 ?>
