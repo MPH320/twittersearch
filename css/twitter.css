@@ -1,14 +1,33 @@
-h1 {
+form {
 	margin: 1em;
+	padding:5px;
+	background-color: white;
+	border: 1px solid black; 
+	overflow: hidden;
+	
 }
 
-form {
-	background-color: #F0F0F0;
+.tweet{
+	background-color: black;
+	border: 1px solid black;
+	color:white;
 	padding: 1em;
 	margin: 1em;
+	background-image: url("tweet.png");
 }
 
+.media {
+    width:400px;
+    height: auto;
+}
 
+button {
+	float:right;
+}
+
+.search {
+   width: 60%;
+}
 /* profile info */
 #profile {
 	padding: 1em;

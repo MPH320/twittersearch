@@ -4,7 +4,7 @@
 	<head>
 
 		<meta charset = "utf-8">
-		<title>My Twitter Page</title>
+		<title>My Twitter Searcher</title>
 		<link rel = "stylesheet" href = "css/main.css" />
 		<link rel = "stylesheet" href = "css/twitter.css" />
 
@@ -16,14 +16,13 @@
 		
 		<form action = "twitter.php" method = "post">
 			
-			Hash Tag: <input type = "text" name = "hash_tag" /><br><br>
-			Number of tweets:
+			Search term: <input class="search" type = "text" name = "hash_tag" />
+			Max results:
 			<select name = "tweet_amount">
 				<option value = "5">5</option>
 				<option value = "10">10</option>
 				<option value = "25">25</option>
-			</select><br><br>
-			
+			</select>
 			<button name = "submit_button">Submit</button>
 		
 		</form>
@@ -31,7 +30,6 @@
 		
 		
 		<section id = "tweets">
-		<h1> Searching <?php echo $hashTag ?></h1>
            
         <?php 
     
@@ -43,14 +41,14 @@
                 
                 if (empty($status->retweeted_status)) {
                     
-                    echo $status->user->name . " (@" . $status->user->screen_name . nl2br (")\n");
+                    echo "<div class='tweet'>" . $status->user->name . " (@" . $status->user->screen_name . nl2br (")\n");
                     $b = $status;
                     echo "<br/>";
                 }
 
                 else {
                     
-                    echo $status->user->name . " (@" . $status->user->screen_name . ") retweeted:"; 
+                    echo "<div class='tweet'>" . $status->user->name . " (@" . $status->user->screen_name . ") retweeted:"; 
                     echo "<br/>";
                     echo "<br/>";
                     $b = $status->retweeted_status;
@@ -73,7 +71,7 @@
                         
                         $media = $b->extended_entities->media[$i];
                         
-                        echo "<br/>" . "<img src=\"" . $media->media_url_https . "\">";
+                        echo "<br/>" . "<img  class='media' src=\"" . $media->media_url_https . "\">";
                         echo "<br/>";
                         echo "<br/>";
                       
@@ -84,8 +82,8 @@
 
                 }
 
-                echo "<div style=\"height: 1px; width: 100%; background-color: black;\"></div>";
-                echo "<br/>";
+                echo "</div>";
+               
             }
         ?>
 			
@@ -97,8 +95,8 @@
 	
 	<script>
 		//print the result of the twitter query to the console as a javascript object
-		var result = <?php echo $encodedResult ?>;
-		console.log(result);
+		//var result = <?php echo $encodedResult ?>;
+		//console.log(result);
 		
 	</script>
 
