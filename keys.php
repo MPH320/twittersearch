@@ -1,1 +1,0 @@
-<?php include "twitter_get_results.php"; ?>
